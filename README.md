@@ -1,8 +1,9 @@
-# 🌟 SpurNexus AI Support Agent
+# SpurNexus AI Support Agent
 
 > An enterprise-grade, omnichannel AI customer support widget built with React, Node.js, and Google Gemini. Features local session persistence, graceful caching fallback, and a beautiful glassmorphism UI.
 
-<img width="1920" height="924" alt="image" src="https://github.com/user-attachments/assets/a96c330f-8d0b-44ce-b46a-c973c4a49543" />
+<img width="1920" height="922" alt="image" src="https://github.com/user-attachments/assets/d3581413-8fb8-4b0b-82da-71b36e6cdb94" />
+
 
 
 ## 📑 Table of Contents
@@ -51,7 +52,7 @@ The application follows a strict separation of concerns, divided into distinct a
 
 ---
 
-## 🧠 LLM Integration Notes
+## LLM Integration Notes
 
 * **Provider & Model:** Powered by Google Generative AI using the **Gemini 3.5 Flash** model. 
 * **Prompt Engineering:** The LLM is strictly constrained via a detailed System Instruction prompt. It acts as "Aria," a support agent with a specific set of ground-truth rules (e.g., $4.99 shipping under $50, 30-day returns). It is explicitly instructed to decline off-topic requests and avoid hallucinating data.
@@ -114,7 +115,7 @@ Navigate to `http://localhost:5173` in your browser to start chatting!
 
 ---
 
-## ⚖️ Trade-offs & "If I Had More Time..."
+## Trade-offs & "If I Had More Time..."
 
 1. **Vector Database / RAG Integration:** Currently, policies are hardcoded into the system prompt. I would integrate Pinecone to retrieve policies dynamically.
 2. **Full Authentication:** Implement JWT-based authentication so users can pull real order history.
