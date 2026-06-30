@@ -14,7 +14,7 @@ export interface ChatSuccessResponse {
   
   const API_BASE_URL =
     (import.meta.env.VITE_API_URL as string | undefined) ??
-    "http://localhost:3000";
+    "https://spurnexus-ai-support-agent.onrender.com";
   
   const CHAT_ENDPOINT = `${API_BASE_URL}/chat/message`;
   
