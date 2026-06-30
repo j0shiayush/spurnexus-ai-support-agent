@@ -71,22 +71,25 @@ export async function handleChatMessage(
   try {
     console.log(`--- [STEP 2] Resolving Session (Incoming ID: ${incomingSessionId || "None"}) ---`);
     let sessionId: string;
+    let targetSessionId = incomingSessionId;
 
-    if (incomingSessionId) {
+    // --- GHOST SESSION PROTECTION ---
+    // Check if the provided session ID exists in our DB. 
+    // If Render wiped the DB, we silently reset the ID to null to create a new session.
+    if (targetSessionId) {
       const existing = await prisma.conversation.findUnique({
-        where: { id: incomingSessionId },
+        where: { id: targetSessionId },
         select: { id: true },
       });
 
       if (!existing) {
-        console.log("--- [STEP 2 ERROR] Invalid Session ID ---");
-        res.status(400).json({
-          error: `Conversation with sessionId "${incomingSessionId}" does not exist.`,
-          code: "VALIDATION_ERROR",
-        });
-        return;
+        console.log(`[Ghost Session] ID ${targetSessionId} not found. Creating new session.`);
+        targetSessionId = null; // Forces creation of a new session
       }
-      sessionId = existing.id;
+    }
+
+    if (targetSessionId) {
+      sessionId = targetSessionId;
     } else {
       const conversation = await prisma.conversation.create({ data: {} });
       sessionId = conversation.id;
