@@ -22,7 +22,7 @@ function AgentAvatar({ isError }: { isError: boolean }) {
       style={{
         width: 32,
         height: 32,
-        borderRadius: "50%",
+        borderRadius: "8px", 
         flexShrink: 0,
         display: "flex",
         alignItems: "center",
@@ -31,16 +31,23 @@ function AgentAvatar({ isError }: { isError: boolean }) {
         fontWeight: 700,
         background: isError
           ? "linear-gradient(135deg, #ef4444, #b91c1c)"
-          : "linear-gradient(135deg, #5B6EF5, #8B5CF6)",
+          : "transparent",
         color: "#fff",
         boxShadow: isError
           ? "0 0 0 3px rgba(239,68,68,0.2)"
-          : "0 0 0 3px rgba(91,110,245,0.2)",
+          : "0 2px 8px rgba(91,110,245,0.4)", 
         userSelect: "none",
+        overflow: "hidden", 
       }}
       aria-hidden="true"
     >
-      {isError ? "!" : "A"}
+      {isError ? "!" : (
+        <img 
+          src="/avatar.png" 
+          alt="Aria" 
+          style={{ width: "100%", height: "100%", objectFit: "cover" }} 
+        />
+      )}
     </div>
   );
 }

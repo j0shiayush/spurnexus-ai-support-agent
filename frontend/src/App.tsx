@@ -137,7 +137,7 @@ export default function App() {
         
         <div style={styles.shell}>
           <header style={styles.header}>
-            <div style={styles.headerAvatar}>A</div>
+          <img src="/avatar.png" alt="Aria" style={styles.headerAvatar} />
             <div style={{ flex: 1 }}>
               <div style={styles.headerName}>Aria</div>
               <div style={styles.headerStatus}>
@@ -299,15 +299,10 @@ const styles = {
   headerAvatar: {
     width: 38,
     height: 38,
-    borderRadius: "50%",
-    background: "linear-gradient(135deg, #5B6EF5, #8B5CF6)",
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-    fontSize: 16,
-    fontWeight: 700,
-    color: "#fff",
-    boxShadow: "0 0 0 3px rgba(91,110,245,0.25)",
+    borderRadius: "8px", 
+    objectFit: "cover", 
+    flexShrink: 0,
+    boxShadow: "0 0 0 2px rgba(91,110,245,0.25)",
   },
   headerName: {
     fontSize: 15,
