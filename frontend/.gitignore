@@ -1,0 +1,12 @@
+node_modules/
+.npm/
+
+.env
+.env.local
+
+*.db
+*.sqlite
+*.sqlite-journal
+
+dist/
+build/
